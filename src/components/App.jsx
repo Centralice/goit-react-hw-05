@@ -1,8 +1,11 @@
-const App = () => {
+import { Routes } from "react-router-dom";
 
+const App = () => {
   return (
     <div>
-      <Component />
+      <Routes>
+        <Component />
+      </Routes>
     </div>
   );
 };
