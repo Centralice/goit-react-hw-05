@@ -1,7 +1,7 @@
 import s from "./MovieDetailsPage.module.css";
 import MovieCast from "../../components/MovieCast/MovieCast";
 import MovieReviews from "../../components/MovieReviews/MovieReviews";
-import { useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import { fetchMovie } from "../../services/api";
 import { useState, useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
@@ -33,8 +33,11 @@ const MovieDetailsPage = () => {
         src={`https://image.tmdb.org/t/p/w500${movie.data.backdrop_path}`}
         alt={movie.data.title}
       />
-      <MovieCast />
-      <MovieReviews />
+      <div>
+        <NavLink to="cast">Cast</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
+      </div>
+      <Outlet />
     </div>
   );
 };
