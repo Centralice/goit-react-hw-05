@@ -1,0 +1,19 @@
+.gallery {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.movieCard {
+  width: 300px;
+}
+
+.movieTitle {
+  font-size: 20px;
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

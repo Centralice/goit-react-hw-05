@@ -1,0 +1,16 @@
+.header {
+  background-color: #3dad4c;
+  display: flex;
+  gap: 30px;
+  justify-content: end;
+  padding: 30px;
+}
+
+.link {
+  font-size: 20px;
+  color: blanchedalmond;
+}
+
+.active {
+  font-weight: bold;
+}

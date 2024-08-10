@@ -5,7 +5,6 @@ const MoviesPage = () => {
   return (
     <div>
       <input type="text" />
-      <MovieList />
     </div>
   );
 };

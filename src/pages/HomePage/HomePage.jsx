@@ -9,18 +9,18 @@ const HomePage = () => {
     try {
       const getTrendingMovies = async () => {
         const movies = await fetchTrendingMovies();
-        setTrendingMovies(movies);
+        setTrendingMovies(movies.data.results);
       };
       getTrendingMovies();
     } catch (error) {
       console.log("ERROR");
     }
   }, []);
-
+  
   return (
     <div>
-      <h1>Now Trending</h1>
-      <MovieList />
+      <h1 className={s.pageTitle}>Now Trending</h1>
+      <MovieList trendingMovies={trendingMovies} />
     </div>
   );
 };
