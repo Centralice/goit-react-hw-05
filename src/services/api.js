@@ -12,7 +12,6 @@ export const fetchTrendingMovies = async () => {
   return trendingMoviesResponse;
 };
 
-
 export const fetchMovie = async (id) => {
   const url = `https://api.themoviedb.org/3/movie/${id}`;
   const options = {
@@ -23,4 +22,28 @@ export const fetchMovie = async (id) => {
   };
   const movieResponse = await axios.get(url, options);
   return movieResponse;
+};
+
+export const fetchCast = async (id) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/credits`;
+  const options = {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOGU1ODViYmIwZDVhZjY3N2QwOGNkZjM1MzhiODRkMiIsIm5iZiI6MTcyMzI4MjMwNi40Njk3OTUsInN1YiI6IjY2YjYyYmVjOTRkZjU4ZWM1OGQ3Yzk1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KPC4QptjjPLoXSMNAUiGF0jlgIs5rjVOplkRbPaqytM",
+    },
+  };
+  const castResponse = await axios.get(url, options);
+  return castResponse;
+};
+
+export const fetchReviews = async (id) => {
+  const url = `https://api.themoviedb.org/3/movie/${id}/reviews`;
+  const options = {
+    headers: {
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkOGU1ODViYmIwZDVhZjY3N2QwOGNkZjM1MzhiODRkMiIsIm5iZiI6MTcyMzI4MjMwNi40Njk3OTUsInN1YiI6IjY2YjYyYmVjOTRkZjU4ZWM1OGQ3Yzk1YyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.KPC4QptjjPLoXSMNAUiGF0jlgIs5rjVOplkRbPaqytM",
+    },
+  };
+  const reviewsResponse = await axios.get(url, options);
+  return reviewsResponse;
 };
