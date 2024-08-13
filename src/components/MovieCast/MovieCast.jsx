@@ -23,7 +23,7 @@ const MovieCast = () => {
     return (
       <ul className={s.credits}>
         {cast.data.cast.map((person) => (
-          <li>
+          <li key={person.id}>
             <div>
               <p>
                 <strong>{person.name}</strong>
