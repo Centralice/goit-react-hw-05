@@ -4,7 +4,7 @@ import s from "./MoviesPage.module.css";
 const MoviesPage = () => {
   return (
     <div>
-      <input type="text" />
+      <input type="search" placeholder="Search a movie..." />
     </div>
   );
 };

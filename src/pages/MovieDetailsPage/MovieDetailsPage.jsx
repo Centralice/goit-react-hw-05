@@ -7,6 +7,9 @@ import { useState, useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import clsx from "clsx";
 
+
+
+
 const MovieDetailsPage = () => {
   const params = useParams();
 
@@ -75,7 +78,9 @@ const MovieDetailsPage = () => {
         <NavLink className={buildLinkClass} to="reviews">
           Reviews
         </NavLink>
-        <Outlet />
+
+          <Outlet />
+
       </div>
     </div>
   );

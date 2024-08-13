@@ -2,36 +2,50 @@ import { useParams } from "react-router-dom";
 import s from "./MovieReviews.module.css";
 import { useEffect, useState } from "react";
 import { fetchReviews } from "../../services/api";
+import Loader from "../Loader/Loader";
 
 const MovieReviews = () => {
-  const params = useParams();
+  const { movieID } = useParams();
 
   const [reviews, setReviews] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
-    try {
-      const getReviews = async () => {
-        const feedback = await fetchReviews(params.movieID);
-        setReviews(feedback);
-      };
-      getReviews();
-    } catch (error) {
-      console.log("ERROR");
-    }
-  }, [params.movieID]);
+    const getReviews = async () => {
+      setIsLoading(true);
+      try {
+        const feedback = await fetchReviews(movieID);
+        setReviews(feedback.data.results || []);
+      } catch (error) {
+        console.log("ERROR");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    getReviews();
+  }, [movieID]);
 
-  if (reviews.data.results) {
-    return (
-      <ul>
-        {reviews.data.results.map((review) => (
-          <li>
-            <p>{review.author}</p>
-
-            <p>{review.content}</p>
-          </li>
-        ))}
-      </ul>
-    );
+  if (isLoading) {
+    return <Loader />;
   }
-};
 
+  if (reviews.length === 0) {
+    return <h2>No reviews yet...</h2>;
+  }
+
+  return (
+    <ul>
+      {reviews.map((review) => (
+        <li key={review.id}>
+          <p>
+            <strong>{review.author}</strong>
+          </p>
+
+          <p>
+            <i>{review.content}</i>
+          </p>
+        </li>
+      ))}
+    </ul>
+  );
+};
 export default MovieReviews;
