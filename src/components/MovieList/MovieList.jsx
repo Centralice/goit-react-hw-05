@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import s from "./MovieList.module.css";
 
-const MovieList = ({ trendingMovies }) => {
+const MovieList = ({ movies }) => {
   return (
     <ul className={s.gallery}>
-      {trendingMovies.map((movie) => (
+      {movies.map((movie) => (
         <Link to={`movies/${movie.id.toString()}`} key={movie.id}>
           <h2 className={s.movieTitle}>{movie.title}</h2>
           <img

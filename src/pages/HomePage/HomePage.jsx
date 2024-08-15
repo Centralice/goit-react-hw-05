@@ -20,7 +20,7 @@ const HomePage = () => {
   return (
     <div>
       <h1 className={s.pageTitle}>Now Trending</h1>
-      <MovieList trendingMovies={trendingMovies} />
+      <MovieList movies={trendingMovies} />
     </div>
   );
 };
