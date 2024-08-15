@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import s from "./MovieList.module.css";
 
 const MovieList = ({ movies }) => {
+
   return (
     <ul className={s.gallery}>
       {movies.map((movie) => (
-        <Link to={`movies/${movie.id.toString()}`} key={movie.id}>
+        <Link to={`${movie.id.toString()}`} key={movie.id} >
           <h2 className={s.movieTitle}>{movie.title}</h2>
           <img
             className={s.movieCard}
