@@ -1,12 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import s from "./MovieList.module.css";
 
 const MovieList = ({ movies }) => {
-
+  const location = useLocation();
+  const fromHome = location.pathname === "/";
   return (
     <ul className={s.gallery}>
       {movies.map((movie) => (
-        <Link to={`${movie.id.toString()}`} key={movie.id} >
+        <Link
+
+          to={fromHome ? `movies/${movie.id.toString()}` : movie.id.toString()}
+          key={movie.id}
+        >
           <h2 className={s.movieTitle}>{movie.title}</h2>
           <img
             className={s.movieCard}
@@ -20,3 +25,5 @@ const MovieList = ({ movies }) => {
 };
 
 export default MovieList;
+
+
