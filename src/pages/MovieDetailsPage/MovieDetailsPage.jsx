@@ -3,7 +3,7 @@ import MovieCast from "../../components/MovieCast/MovieCast";
 import MovieReviews from "../../components/MovieReviews/MovieReviews";
 import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovie } from "../../services/api";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Suspense } from "react";
 import Loader from "../../components/Loader/Loader";
 import clsx from "clsx";
 
@@ -79,7 +79,9 @@ const MovieDetailsPage = () => {
           <NavLink className={buildLinkClass} to="reviews">
             Reviews
           </NavLink>
-          <Outlet />
+          <Suspense fallback={<Loader />}>
+            <Outlet />
+          </Suspense>
         </div>
       </div>
     </div>
