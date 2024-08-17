@@ -8,8 +8,8 @@ const MovieList = ({ movies }) => {
     <ul className={s.gallery}>
       {movies.map((movie) => (
         <Link
-
           to={fromHome ? `movies/${movie.id.toString()}` : movie.id.toString()}
+          state={location}
           key={movie.id}
         >
           <h2 className={s.movieTitle}>{movie.title}</h2>
